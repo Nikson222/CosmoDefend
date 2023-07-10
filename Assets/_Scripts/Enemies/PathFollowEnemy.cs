@@ -9,11 +9,11 @@ public class PathFollowEnemy : EnemySpacecraft
     private int _currentPointIndex;
     [SerializeField] protected PointsPattern _pathLine;
 
-    protected void OnEnable()
-    {
-        if (_pathLine)
-            _targetPoint = _pathLine.Points[0];
-    }
+    //protected void OnEnable()
+    //{
+    //    if (_pathLine)
+    //        _targetPoint = _pathLine.Points[0];
+    //}
 
     
 
@@ -58,6 +58,7 @@ public class PathFollowEnemy : EnemySpacecraft
     public virtual void SetPathLine(PointsPattern pathLine)
     {
         _pathLine = pathLine;
+        _targetPoint = pathLine.Points[0];
     }
 
     public override void SetSettingsFromWave(WaveElement waveElement)
