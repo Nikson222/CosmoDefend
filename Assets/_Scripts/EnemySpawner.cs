@@ -68,18 +68,8 @@ public class EnemySpawner : MonoBehaviour
                 {
                     var coroutine = StartCoroutine(SpawnElementWithDurationRoutine(Wave.WaveElements[i]));
                     _onClearLastWave += () => { StopCoroutine(coroutine); };
-                    //for (int spawnCount = 0; spawnCount < Wave.WaveElements[i].Count; spawnCount++)
-                    //{
-                    //    var enemy = _prefabsPooler[Wave.WaveElements[i].EnemySpacecraft].GetObject();
 
-                    //    enemy.SetSettingsFromWave(Wave.WaveElements[i]);
-                    //    if (Wave.WaveElements[i].SpawnPoints != null && Wave.WaveElements[i].SpawnPoints.Points.Length == Wave.WaveElements[i].Count)
-                    //        SetSpawnPosition(enemy.transform, Wave.WaveElements[i].SpawnPoints.Points[i]);
-                    //    else
-                    //        SetSpawnPosition(enemy.transform);
-
-                    //    yield return new WaitForSeconds(Wave.WaveElements[i].Duration);
-                    //}
+                    yield return coroutine;
                 }
                 else
                 {
@@ -93,10 +83,20 @@ public class EnemySpawner : MonoBehaviour
                         else
                             SpawnElementWithOutDuration(waveElement);
                     }
+
+                    //if (Wave.WaveElements[i].MinDuration > 0 || Wave.WaveElements[i].MaxDuration > 0)
+                    //{
+                    //    var coroutine = StartCoroutine(SpawnElementWithDurationRoutine(Wave.WaveElements[i]));
+                    //    _onClearLastWave += () => { StopCoroutine(coroutine); };
+                    //    yield return new WaitForSeconds(Wave.WaveElements[i].SwitchDuration);
+                    //}
+                    //else
+                    //    SpawnElementWithOutDuration(Wave.WaveElements[i]);
                 }
 
-                yield return new WaitForSeconds(Wave.WaveDuration);
             }
+
+            yield return new WaitForSeconds(Wave.WaveDuration);
         }
 
         if (levelConfig.IsLooped)
@@ -110,7 +110,7 @@ public class EnemySpawner : MonoBehaviour
             for (int i = 0; i < waveElement.Count; i++)
             {
                 var enemy = _prefabsPooler[waveElement.EnemySpacecraft].GetObject();
-                HealthBarsController.Instance.CreateHealthBar(enemy);
+                //HealthBarsController.Instance.CreateHealthBar(enemy);
 
                 if (waveElement.SpawnPoint != Vector2.zero)
                 {

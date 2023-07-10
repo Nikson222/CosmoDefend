@@ -51,7 +51,7 @@ namespace Levels
 
         public float MinDuration { get { return _minDuration; } }
         public float MaxDuration { get { return _maxDuration; } }
-        public float SwithDuration { get { return _switchDuration; } }
+        public float SwitchDuration { get { return _switchDuration; } }
         public bool IsRandomizeDuratiom { get { return _isRandomizeDuration; } }
         public bool IsPlayerTarget { get { return _isPlayerTarget; } }
         public int Count { get { return _count; } }
