@@ -41,16 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4160983985636447292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ff531b653629324cb81777d8af89944, type: 3}
+  m_Script: {fileID: 11500000, guid: 19f5a5b5fdf31a24caa8eb2e090cbeed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pathPoints:
-  - {x: 10, y: 0}
-  - {x: 7.5, y: 2.5}
-  - {x: 5, y: 4}
-  - {x: 2.5, y: 2.5}
-  - {x: 0, y: 0}
-  - {x: -2.5, y: -2.5}
-  - {x: -5, y: -4}
-  - {x: -7.5, y: -2.5}
-  - {x: -10, y: 0}
+  _Points:
+  - {x: 10.69, y: 0}
+  - {x: 5.81, y: -3}
+  - {x: 0.57, y: -3.93}
+  - {x: -3.54, y: 0}
