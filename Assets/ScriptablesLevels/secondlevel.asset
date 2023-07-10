@@ -13,4 +13,21 @@ MonoBehaviour:
   m_Name: secondlevel
   m_EditorClassIdentifier: 
   _isLooped: 0
-  waves: []
+  waves:
+  - _isSimultaneouslySpawn: 0
+    name: 
+    _waveElements:
+    - name: 
+      _enemyPrefab: {fileID: 0}
+      _count: 0
+      _isRandomizeDuration: 0
+      _minDuration: 0
+      _maxDuration: 0
+      _switchDuration: 0
+      _isPlayerTarget: 0
+      _target: {fileID: 0}
+      _pathLine: {fileID: 9125166971868486744, guid: 71d109c7da505004881150999b08f12d, type: 3}
+      _spawnPoint: {x: 0, y: 0}
+      _xRangeSpawn: 0
+      _yRangeSpawn: 0
+    _waveDuration: 0

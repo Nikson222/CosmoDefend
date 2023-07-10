@@ -14,20 +14,72 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isLooped: 0
   waves:
-  - _isSimultaneouslySpawn: 0
-    name: Wave1
+  - _isSimultaneouslySpawn: 1
+    name: 1
     _waveElements:
     - name: 1
       _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
-      _count: 2
+      _count: 8
       _isRandomizeDuration: 0
-      _minDuration: 5
-      _maxDuration: 5
+      _minDuration: 3.14
+      _maxDuration: 3.14
       _switchDuration: 0
       _isPlayerTarget: 0
       _target: {fileID: 0}
-      _pathLine: {fileID: 9125166971868486744, guid: 71d109c7da505004881150999b08f12d, type: 3}
-      _spawnPoint: {x: 11.68, y: -2.1}
+      _pathLine: {fileID: 0}
+      _spawnPoint: {x: 9.1, y: 3.02}
       _xRangeSpawn: 0
       _yRangeSpawn: 0
-    _waveDuration: 5
+    - name: 2
+      _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
+      _count: 8
+      _isRandomizeDuration: 0
+      _minDuration: 3.14
+      _maxDuration: 3.14
+      _switchDuration: 0
+      _isPlayerTarget: 0
+      _target: {fileID: 0}
+      _pathLine: {fileID: 0}
+      _spawnPoint: {x: 9, y: 0}
+      _xRangeSpawn: 0
+      _yRangeSpawn: 0
+    - name: 3
+      _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
+      _count: 8
+      _isRandomizeDuration: 0
+      _minDuration: 3.14
+      _maxDuration: 3.14
+      _switchDuration: 0
+      _isPlayerTarget: 0
+      _target: {fileID: 0}
+      _pathLine: {fileID: 0}
+      _spawnPoint: {x: 9, y: -2}
+      _xRangeSpawn: 0
+      _yRangeSpawn: 0
+    - name: 4
+      _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
+      _count: 8
+      _isRandomizeDuration: 0
+      _minDuration: 3.14
+      _maxDuration: 3.14
+      _switchDuration: 0
+      _isPlayerTarget: 0
+      _target: {fileID: 0}
+      _pathLine: {fileID: 0}
+      _spawnPoint: {x: 9, y: -4}
+      _xRangeSpawn: 0
+      _yRangeSpawn: 0
+    - name: 5
+      _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
+      _count: 8
+      _isRandomizeDuration: 0
+      _minDuration: 3.14
+      _maxDuration: 3.14
+      _switchDuration: 0
+      _isPlayerTarget: 0
+      _target: {fileID: 0}
+      _pathLine: {fileID: 0}
+      _spawnPoint: {x: 9.1, y: 1}
+      _xRangeSpawn: 0
+      _yRangeSpawn: 0
+    _waveDuration: 0

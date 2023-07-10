@@ -55,7 +55,8 @@ public class PathFollowEnemy : EnemySpacecraft
     public virtual void SetPathLine(PointsPattern pathLine)
     {
         _pathLine = pathLine;
-        _targetPoint = _pathLine.Points[_currentPointIndex];
+        if (_pathLine != null)
+            _targetPoint = _pathLine.Points[_currentPointIndex];
     }
 
     public override void SetSettingsFromWave(WaveElement waveElement)

@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectile: {fileID: 8838081626749790330, guid: 7e3ec8727154faa4e81d1842286ce680, type: 3}
-  _shootingDelay: 0.5
-  _shootingForce: 6
-  _damageMultiplier: 0.25
+  _shootingDelay: 0.4
+  _shootingForce: 5.75
+  _damageMultiplier: 0.2
 --- !u!1 &5754444051226823830
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,10 +174,10 @@ MonoBehaviour:
   _possibleGuns:
   - {fileID: 5754444050743246423}
   _speed: 2
-  _health: 100
-  _pathLine: {fileID: 0}
+  _health: 75
   _exhaustObject: {fileID: 5754444051605834706}
   _animator: {fileID: 0}
+  _pathLine: {fileID: 0}
 --- !u!70 &713707283273093187
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

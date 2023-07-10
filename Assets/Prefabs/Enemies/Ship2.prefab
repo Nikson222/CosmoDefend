@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectile: {fileID: 8838081626749790330, guid: 5a17f15c9d1063a4f8e17eced29b3b49, type: 3}
-  _shootingDelay: 2.5
-  _shootingForce: 4
-  _damageMultiplier: 2
+  _shootingDelay: 2.25
+  _shootingForce: 3.75
+  _damageMultiplier: 1.8
 --- !u!1 &5754444051226823830
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,9 +175,9 @@ MonoBehaviour:
   - {fileID: 5754444050743246423}
   _speed: 2
   _health: 50
-  _pathLine: {fileID: 0}
   _exhaustObject: {fileID: 5754444051605834706}
   _animator: {fileID: 0}
+  _pathLine: {fileID: 0}
 --- !u!70 &713707283273093187
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

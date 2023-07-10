@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectile: {fileID: 8838081626749790330, guid: cfcc2d6a8cc21994ea03fa70ef46899c, type: 3}
   _shootingDelay: 1
-  _shootingForce: 5
-  _damageMultiplier: 0
+  _shootingForce: 3.5
+  _damageMultiplier: 0.5
 --- !u!1 &5754444051226823830
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,11 +59,11 @@ GameObject:
   - component: {fileID: 5754444051226823828}
   - component: {fileID: 5754444051226823829}
   - component: {fileID: 5754444051226823834}
+  - component: {fileID: 5754444051226823835}
   - component: {fileID: 713707283273093187}
   - component: {fileID: 7489836347732320401}
-  - component: {fileID: 7329128853473391230}
   m_Layer: 9
-  m_Name: TargetSmallShip1
+  m_Name: Ship 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ Transform:
   m_GameObject: {fileID: 5754444051226823830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.771, y: -0.016, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1.5}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5754444051605834705}
@@ -128,7 +128,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2eb41d674daebdf45ae20069d5853ef5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9334315, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -159,6 +159,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5754444051226823835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5754444051226823830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e66fbb34c3cf5704baaa0033e4793871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _possibleGuns:
+  - {fileID: 5754444050743246423}
+  _speed: 2
+  _health: 25
+  _exhaustObject: {fileID: 5754444051605834706}
+  _animator: {fileID: 0}
+  _pathLine: {fileID: 0}
 --- !u!70 &713707283273093187
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -195,25 +214,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &7329128853473391230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5754444051226823830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3ead9eba75fac4438a95af89b56f25d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _possibleGuns: []
-  _speed: 2
-  _health: 1
-  _exhaustObject: {fileID: 5754444051605834706}
-  _animator: {fileID: 0}
-  _target: {fileID: 0}
-  direction: {x: 0, y: 0, z: 0}
 --- !u!1 &5754444051605834706
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +309,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 590b4fe3887b6d14da34317f88310e66, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
