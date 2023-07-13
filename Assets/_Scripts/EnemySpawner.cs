@@ -74,13 +74,15 @@ public class EnemySpawner : MonoBehaviour
                 }
                 else
                 {
+                    Coroutine coroutine = null;
                     foreach (var waveElement in Wave.WaveElements)
                     {
-                        var coroutine = StartCoroutine(SpawnElementWithDurationRoutine(waveElement));
+                        coroutine = StartCoroutine(SpawnElementWithDurationRoutine(waveElement));
                         _onClearLastWave += () => { StopCoroutine(coroutine); };
 
                         yield return new WaitForSeconds(waveElement.SwitchDuration);
                     }
+                    yield return coroutine;
                 }
             }
 
@@ -98,7 +100,6 @@ public class EnemySpawner : MonoBehaviour
             for (int i = 0; i < waveElement.Count; i++)
             {
                 var enemy = _prefabsPooler[waveElement.EnemySpacecraft].GetObject();
-                //HealthBarsController.Instance.CreateHealthBar(enemy);
 
                 if (waveElement.SpawnPoint != Vector2.zero)
                 {
@@ -112,12 +113,14 @@ public class EnemySpawner : MonoBehaviour
                     SetSpawnPosition(enemy.transform);
 
                 enemy.SetSettingsFromWave(waveElement);
+
                 float duration;
                 if (waveElement.IsRandomizeDuratiom)
                     duration = UnityEngine.Random.Range(waveElement.MinDuration, waveElement.MaxDuration);
                 else
                     duration = waveElement.SwitchDuration;
 
+                print(duration);
                 yield return new WaitForSeconds(duration);
             }
         }
