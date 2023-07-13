@@ -26,22 +26,22 @@ namespace Levels
         private Action<int> _onLevelUnlock;
         private Action _onLevelLaunch;
 
-        public void Init()
+        private void Start()
         {
-            UpdateTargetForWave(_menuLevelConfig, _targetForEnemy);
+            //UpdateTargetForWave(_menuLevelConfig, _targetForEnemy);
 
-            LaunchLevel(_menuLevelConfig);
+            //LaunchLevel(_menuLevelConfig);
 
             DontDestroyOnLoad(this);
 
-            _onLevelUnlock += _selectPanel.UnlockButton;
-            _selectPanel.OnLevelSelect += LaunchLevel;
+            //_onLevelUnlock += _selectPanel.UnlockButton;
+            //_selectPanel.OnLevelSelect += LaunchLevel;
 
-            _allIndexesFlomConfigs = GetPossibleIndexes();
+            //_allIndexesFlomConfigs = GetPossibleIndexes();
 
-            _selectPanel.Init(_levelConfigs, _indexesOfUnlockededLevels);
+            //_selectPanel.Init(_levelConfigs, _indexesOfUnlockededLevels);
 
-            UnlockLevel(0);
+            //UnlockLevel(0);
         }
 
         private void LaunchLevel(int levelIndex)
@@ -98,11 +98,6 @@ namespace Levels
                 _indexesOfUnlockededLevels.Add(index);
 
             _onLevelUnlock?.Invoke(index);
-        }
-
-        public void StartMenuLevelConfig()
-        {
-            LaunchLevel(_menuLevelConfig);
         }
     }
 }

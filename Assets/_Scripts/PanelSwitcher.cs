@@ -24,6 +24,7 @@ public class PanelSwitcher : MonoBehaviour
             Destroy(this);
 
         _currentPanel = _defaultPanel;
+        
     }
 
     private void Start()

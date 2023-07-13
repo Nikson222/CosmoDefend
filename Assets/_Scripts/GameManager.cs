@@ -11,17 +11,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private SpaceCraft _player;
 
-    [SerializeField] private LevelsController _levelController;
-
-    [SerializeField] private ScenesController _scenesController;
+    [SerializeField] private LevelsController _controller;
+    public LevelsController Controller => _controller;
 
     private void Start()
     {
-        _levelController.Init();
-
-        if (_scenesController.IsMainMenuScene)
-            _levelController.StartMenuLevelConfig();
-
         if(Instance == null)
             Instance = this;
         else
