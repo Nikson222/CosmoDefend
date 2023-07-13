@@ -69,31 +69,21 @@ public class EnemySpawner : MonoBehaviour
                     var coroutine = StartCoroutine(SpawnElementWithDurationRoutine(Wave.WaveElements[i]));
                     _onClearLastWave += () => { StopCoroutine(coroutine); };
 
+                    yield return new WaitForSeconds(Wave.WaveElements[i].SwitchDuration);
                     yield return coroutine;
                 }
                 else
                 {
+                    Coroutine coroutine = null;
                     foreach (var waveElement in Wave.WaveElements)
                     {
-                        if (waveElement.MinDuration > 0 || waveElement.MaxDuration > 0)
-                        {
-                            var coroutine = StartCoroutine(SpawnElementWithDurationRoutine(waveElement));
-                            _onClearLastWave += () => { StopCoroutine(coroutine); };
-                        }
-                        else
-                            SpawnElementWithOutDuration(waveElement);
+                        coroutine = StartCoroutine(SpawnElementWithDurationRoutine(waveElement));
+                        _onClearLastWave += () => { StopCoroutine(coroutine); };
+
+                        yield return new WaitForSeconds(waveElement.SwitchDuration);
                     }
-
-                    //if (Wave.WaveElements[i].MinDuration > 0 || Wave.WaveElements[i].MaxDuration > 0)
-                    //{
-                    //    var coroutine = StartCoroutine(SpawnElementWithDurationRoutine(Wave.WaveElements[i]));
-                    //    _onClearLastWave += () => { StopCoroutine(coroutine); };
-                    //    yield return new WaitForSeconds(Wave.WaveElements[i].SwitchDuration);
-                    //}
-                    //else
-                    //    SpawnElementWithOutDuration(Wave.WaveElements[i]);
+                    yield return coroutine;
                 }
-
             }
 
             yield return new WaitForSeconds(Wave.WaveDuration);
@@ -110,7 +100,6 @@ public class EnemySpawner : MonoBehaviour
             for (int i = 0; i < waveElement.Count; i++)
             {
                 var enemy = _prefabsPooler[waveElement.EnemySpacecraft].GetObject();
-                //HealthBarsController.Instance.CreateHealthBar(enemy);
 
                 if (waveElement.SpawnPoint != Vector2.zero)
                 {
@@ -125,9 +114,13 @@ public class EnemySpawner : MonoBehaviour
 
                 enemy.SetSettingsFromWave(waveElement);
 
-                float duration = waveElement.MinDuration;
+                float duration;
                 if (waveElement.IsRandomizeDuratiom)
-                    duration = UnityEngine.Random.Range(duration, waveElement.MaxDuration);
+                    duration = UnityEngine.Random.Range(waveElement.MinDuration, waveElement.MaxDuration);
+                else
+                    duration = waveElement.SwitchDuration;
+
+                print(duration);
                 yield return new WaitForSeconds(duration);
             }
         }

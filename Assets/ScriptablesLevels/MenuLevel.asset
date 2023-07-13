@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c84d222f467fa45b16147d42d636b6, type: 3}
   m_Name: MenuLevel
   m_EditorClassIdentifier: 
-  _isLooped: 1
+  _isLooped: 0
   waves:
   - _isSimultaneouslySpawn: 1
     name: Wave1
@@ -21,9 +21,9 @@ MonoBehaviour:
       _enemyPrefab: {fileID: 7329128853473391230, guid: 9b11f20079d962443983bea735ad471d, type: 3}
       _count: 10
       _isRandomizeDuration: 1
-      _minDuration: 3
-      _maxDuration: 10
-      _switchDuration: 1
+      _minDuration: 1
+      _maxDuration: 5
+      _switchDuration: 0
       _isPlayerTarget: 0
       _target: {fileID: 0}
       _pathLine: {fileID: 0}
@@ -34,9 +34,9 @@ MonoBehaviour:
       _enemyPrefab: {fileID: 7329128853473391230, guid: 9b11f20079d962443983bea735ad471d, type: 3}
       _count: 10
       _isRandomizeDuration: 1
-      _minDuration: 3
-      _maxDuration: 10
-      _switchDuration: 1
+      _minDuration: 1
+      _maxDuration: 5
+      _switchDuration: 0
       _isPlayerTarget: 0
       _target: {fileID: 0}
       _pathLine: {fileID: 0}
@@ -47,9 +47,9 @@ MonoBehaviour:
       _enemyPrefab: {fileID: 7329128853473391230, guid: 9b11f20079d962443983bea735ad471d, type: 3}
       _count: 10
       _isRandomizeDuration: 1
-      _minDuration: 3
-      _maxDuration: 10
-      _switchDuration: 1
+      _minDuration: 1
+      _maxDuration: 5
+      _switchDuration: 0
       _isPlayerTarget: 0
       _target: {fileID: 0}
       _pathLine: {fileID: 0}
@@ -60,13 +60,13 @@ MonoBehaviour:
       _enemyPrefab: {fileID: 7329128853473391230, guid: 9b11f20079d962443983bea735ad471d, type: 3}
       _count: 10
       _isRandomizeDuration: 1
-      _minDuration: 3
-      _maxDuration: 10
-      _switchDuration: 1
+      _minDuration: 1
+      _maxDuration: 5
+      _switchDuration: 0
       _isPlayerTarget: 0
       _target: {fileID: 0}
       _pathLine: {fileID: 0}
       _spawnPoint: {x: 10, y: 0}
       _xRangeSpawn: 0
       _yRangeSpawn: 5
-    _waveDuration: 4
+    _waveDuration: 5
