@@ -69,31 +69,19 @@ public class EnemySpawner : MonoBehaviour
                     var coroutine = StartCoroutine(SpawnElementWithDurationRoutine(Wave.WaveElements[i]));
                     _onClearLastWave += () => { StopCoroutine(coroutine); };
 
+                    yield return new WaitForSeconds(Wave.WaveElements[i].SwitchDuration);
                     yield return coroutine;
                 }
                 else
                 {
                     foreach (var waveElement in Wave.WaveElements)
                     {
-                        if (waveElement.MinDuration > 0 || waveElement.MaxDuration > 0)
-                        {
-                            var coroutine = StartCoroutine(SpawnElementWithDurationRoutine(waveElement));
-                            _onClearLastWave += () => { StopCoroutine(coroutine); };
-                        }
-                        else
-                            SpawnElementWithOutDuration(waveElement);
+                        var coroutine = StartCoroutine(SpawnElementWithDurationRoutine(waveElement));
+                        _onClearLastWave += () => { StopCoroutine(coroutine); };
+
+                        yield return new WaitForSeconds(waveElement.SwitchDuration);
                     }
-
-                    //if (Wave.WaveElements[i].MinDuration > 0 || Wave.WaveElements[i].MaxDuration > 0)
-                    //{
-                    //    var coroutine = StartCoroutine(SpawnElementWithDurationRoutine(Wave.WaveElements[i]));
-                    //    _onClearLastWave += () => { StopCoroutine(coroutine); };
-                    //    yield return new WaitForSeconds(Wave.WaveElements[i].SwitchDuration);
-                    //}
-                    //else
-                    //    SpawnElementWithOutDuration(Wave.WaveElements[i]);
                 }
-
             }
 
             yield return new WaitForSeconds(Wave.WaveDuration);
@@ -124,10 +112,12 @@ public class EnemySpawner : MonoBehaviour
                     SetSpawnPosition(enemy.transform);
 
                 enemy.SetSettingsFromWave(waveElement);
-
-                float duration = waveElement.MinDuration;
+                float duration;
                 if (waveElement.IsRandomizeDuratiom)
-                    duration = UnityEngine.Random.Range(duration, waveElement.MaxDuration);
+                    duration = UnityEngine.Random.Range(waveElement.MinDuration, waveElement.MaxDuration);
+                else
+                    duration = waveElement.SwitchDuration;
+
                 yield return new WaitForSeconds(duration);
             }
         }

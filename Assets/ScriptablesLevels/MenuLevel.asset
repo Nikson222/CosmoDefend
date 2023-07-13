@@ -21,8 +21,8 @@ MonoBehaviour:
       _enemyPrefab: {fileID: 7329128853473391230, guid: 9b11f20079d962443983bea735ad471d, type: 3}
       _count: 10
       _isRandomizeDuration: 1
-      _minDuration: 3
-      _maxDuration: 10
+      _minDuration: 5
+      _maxDuration: 20
       _switchDuration: 1
       _isPlayerTarget: 0
       _target: {fileID: 0}
@@ -34,8 +34,8 @@ MonoBehaviour:
       _enemyPrefab: {fileID: 7329128853473391230, guid: 9b11f20079d962443983bea735ad471d, type: 3}
       _count: 10
       _isRandomizeDuration: 1
-      _minDuration: 3
-      _maxDuration: 10
+      _minDuration: 5
+      _maxDuration: 20
       _switchDuration: 1
       _isPlayerTarget: 0
       _target: {fileID: 0}
@@ -47,8 +47,8 @@ MonoBehaviour:
       _enemyPrefab: {fileID: 7329128853473391230, guid: 9b11f20079d962443983bea735ad471d, type: 3}
       _count: 10
       _isRandomizeDuration: 1
-      _minDuration: 3
-      _maxDuration: 10
+      _minDuration: 5
+      _maxDuration: 20
       _switchDuration: 1
       _isPlayerTarget: 0
       _target: {fileID: 0}
@@ -60,8 +60,8 @@ MonoBehaviour:
       _enemyPrefab: {fileID: 7329128853473391230, guid: 9b11f20079d962443983bea735ad471d, type: 3}
       _count: 10
       _isRandomizeDuration: 1
-      _minDuration: 3
-      _maxDuration: 10
+      _minDuration: 5
+      _maxDuration: 20
       _switchDuration: 1
       _isPlayerTarget: 0
       _target: {fileID: 0}
