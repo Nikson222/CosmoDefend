@@ -16,6 +16,10 @@ MonoBehaviour:
   waves:
   - _isSimultaneouslySpawn: 1
     name: 1
+    _waveElements: []
+    _waveDuration: 10
+  - _isSimultaneouslySpawn: 1
+    name: 1
     _waveElements:
     - name: 1
       _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}

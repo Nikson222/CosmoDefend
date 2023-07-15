@@ -15,12 +15,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private ScenesController _scenesController;
 
+    [SerializeField] private PanelsRecorder _panelRecorder;
+
     private void Start()
     {
-        _levelController.Init();
+        SceneManager.activeSceneChanged += ApplySettingToScene;
 
-        if (_scenesController.IsMainMenuScene)
-            _levelController.StartMenuLevelConfig();
+        _levelController.Init(_scenesController);
 
         if(Instance == null)
             Instance = this;
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
 
         Application.targetFrameRate = 60;
-        //_player.OnDie += () => { StartCoroutine(RestartGameRoutine()); };
+        _player.OnDie += () => { _scenesController.LoadLevelScene(); };
     }
 
     private IEnumerator RestartGameRoutine()
@@ -41,9 +42,16 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(scene.buildIndex, LoadSceneMode.Single);
     }
 
-    private void SpawnPlayer()
+    private void ApplySettingToScene(Scene scene, Scene scene1)
     {
-
+        if (_scenesController.IsMainMenuScene)
+        {
+            _levelController.StartMenuLevelConfig();
+            _player.gameObject.SetActive(false);
+        }
+        else if (_scenesController.IsLevelScene)
+        {
+            _player.gameObject.SetActive(true);
+        }
     }
-
 }

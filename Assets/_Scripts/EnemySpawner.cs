@@ -169,7 +169,7 @@ public class EnemySpawner : MonoBehaviour
         _onClearLastWave?.Invoke();
         if (spawnCoroutine != null)
             StopCoroutine(spawnCoroutine);
-        print("Cleared");
+
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(false);
