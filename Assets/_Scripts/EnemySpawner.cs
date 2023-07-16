@@ -82,6 +82,9 @@ public class EnemySpawner : MonoBehaviour
                         var coroutine = StartCoroutine(SpawnElementWithDurationRoutine(Wave.WaveElements[i]));
                         coroutines.Add(coroutine);
 
+                        if (i == Wave.WaveElements.Length - 1)
+                            yield return coroutine;
+
                         yield return new WaitForSeconds(Wave.WaveElements[i].SwitchDuration);
                     }
                 }
