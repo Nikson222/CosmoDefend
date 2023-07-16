@@ -15,71 +15,183 @@ MonoBehaviour:
   _isLooped: 0
   waves:
   - _isSimultaneouslySpawn: 1
-    name: 1
+    name: 
     _waveElements:
     - name: 1
       _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
-      _count: 8
+      _count: 1
       _isRandomizeDuration: 0
-      _minDuration: 3.14
-      _maxDuration: 3.14
+      _minDuration: 4
+      _maxDuration: 4
       _switchDuration: 0
       _isPlayerTarget: 0
       _target: {fileID: 0}
       _pathLine: {fileID: 0}
-      _spawnPoint: {x: 9.1, y: 3.02}
+      _spawnPoint: {x: 9.01, y: 4.37}
       _xRangeSpawn: 0
       _yRangeSpawn: 0
     - name: 2
-      _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
-      _count: 8
+      _enemyPrefab: {fileID: 5754444051226823835, guid: e8e2be5e60383fc4ab211bd4f587bf99, type: 3}
+      _count: 1
       _isRandomizeDuration: 0
-      _minDuration: 3.14
-      _maxDuration: 3.14
+      _minDuration: 4
+      _maxDuration: 4
       _switchDuration: 0
       _isPlayerTarget: 0
       _target: {fileID: 0}
       _pathLine: {fileID: 0}
-      _spawnPoint: {x: 9, y: 0}
+      _spawnPoint: {x: 9.03, y: 2.8}
       _xRangeSpawn: 0
       _yRangeSpawn: 0
     - name: 3
       _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
-      _count: 8
+      _count: 1
       _isRandomizeDuration: 0
-      _minDuration: 3.14
-      _maxDuration: 3.14
+      _minDuration: 4
+      _maxDuration: 4
       _switchDuration: 0
       _isPlayerTarget: 0
       _target: {fileID: 0}
       _pathLine: {fileID: 0}
-      _spawnPoint: {x: 9, y: -2}
+      _spawnPoint: {x: 9, y: 1.1}
       _xRangeSpawn: 0
       _yRangeSpawn: 0
     - name: 4
-      _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
-      _count: 8
+      _enemyPrefab: {fileID: 5754444051226823835, guid: e8e2be5e60383fc4ab211bd4f587bf99, type: 3}
+      _count: 1
       _isRandomizeDuration: 0
-      _minDuration: 3.14
-      _maxDuration: 3.14
+      _minDuration: 4
+      _maxDuration: 4
       _switchDuration: 0
       _isPlayerTarget: 0
       _target: {fileID: 0}
       _pathLine: {fileID: 0}
-      _spawnPoint: {x: 9, y: -4}
+      _spawnPoint: {x: 9, y: -0.91}
       _xRangeSpawn: 0
       _yRangeSpawn: 0
     - name: 5
       _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
-      _count: 8
+      _count: 1
       _isRandomizeDuration: 0
-      _minDuration: 3.14
-      _maxDuration: 3.14
+      _minDuration: 4
+      _maxDuration: 4
       _switchDuration: 0
       _isPlayerTarget: 0
       _target: {fileID: 0}
       _pathLine: {fileID: 0}
-      _spawnPoint: {x: 9.1, y: 1}
+      _spawnPoint: {x: 9, y: -2.84}
+      _xRangeSpawn: 0
+      _yRangeSpawn: 0
+    - name: 6
+      _enemyPrefab: {fileID: 5754444051226823835, guid: e8e2be5e60383fc4ab211bd4f587bf99, type: 3}
+      _count: 1
+      _isRandomizeDuration: 0
+      _minDuration: 4
+      _maxDuration: 4
+      _switchDuration: 0
+      _isPlayerTarget: 0
+      _target: {fileID: 0}
+      _pathLine: {fileID: 0}
+      _spawnPoint: {x: 9, y: -4.6}
+      _xRangeSpawn: 0
+      _yRangeSpawn: 0
+    _waveDuration: 0
+  - _isSimultaneouslySpawn: 1
+    name: 
+    _waveElements:
+    - name: 1
+      _enemyPrefab: {fileID: 5754444051226823835, guid: c08057eac0da3b342aeee7a5a3d94ccc, type: 3}
+      _count: 1
+      _isRandomizeDuration: 0
+      _minDuration: 0
+      _maxDuration: 0
+      _switchDuration: 0
+      _isPlayerTarget: 0
+      _target: {fileID: 0}
+      _pathLine: {fileID: 0}
+      _spawnPoint: {x: 9.01, y: 0}
+      _xRangeSpawn: 0
+      _yRangeSpawn: 0
+    _waveDuration: 5
+  - _isSimultaneouslySpawn: 1
+    name: 
+    _waveElements:
+    - name: 1
+      _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
+      _count: 1
+      _isRandomizeDuration: 0
+      _minDuration: 0
+      _maxDuration: 0
+      _switchDuration: 0
+      _isPlayerTarget: 0
+      _target: {fileID: 0}
+      _pathLine: {fileID: 0}
+      _spawnPoint: {x: 9.01, y: 4.37}
+      _xRangeSpawn: 0
+      _yRangeSpawn: 0
+    - name: 2
+      _enemyPrefab: {fileID: 5754444051226823835, guid: e8e2be5e60383fc4ab211bd4f587bf99, type: 3}
+      _count: 1
+      _isRandomizeDuration: 0
+      _minDuration: 0
+      _maxDuration: 0
+      _switchDuration: 0
+      _isPlayerTarget: 0
+      _target: {fileID: 0}
+      _pathLine: {fileID: 0}
+      _spawnPoint: {x: 9.01, y: 3}
+      _xRangeSpawn: 0
+      _yRangeSpawn: 0
+    - name: 3
+      _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
+      _count: 1
+      _isRandomizeDuration: 0
+      _minDuration: 0
+      _maxDuration: 0
+      _switchDuration: 0
+      _isPlayerTarget: 0
+      _target: {fileID: 0}
+      _pathLine: {fileID: 0}
+      _spawnPoint: {x: 9.01, y: 1.1}
+      _xRangeSpawn: 0
+      _yRangeSpawn: 0
+    - name: 4
+      _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
+      _count: 1
+      _isRandomizeDuration: 0
+      _minDuration: 0
+      _maxDuration: 0
+      _switchDuration: 0
+      _isPlayerTarget: 0
+      _target: {fileID: 0}
+      _pathLine: {fileID: 0}
+      _spawnPoint: {x: 9.01, y: -0.91}
+      _xRangeSpawn: 0
+      _yRangeSpawn: 0
+    - name: 5
+      _enemyPrefab: {fileID: 5754444051226823835, guid: e8e2be5e60383fc4ab211bd4f587bf99, type: 3}
+      _count: 1
+      _isRandomizeDuration: 0
+      _minDuration: 0
+      _maxDuration: 0
+      _switchDuration: 0
+      _isPlayerTarget: 0
+      _target: {fileID: 0}
+      _pathLine: {fileID: 0}
+      _spawnPoint: {x: 9.01, y: -2.84}
+      _xRangeSpawn: 0
+      _yRangeSpawn: 0
+    - name: 6
+      _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
+      _count: 1
+      _isRandomizeDuration: 0
+      _minDuration: 0
+      _maxDuration: 0
+      _switchDuration: 0
+      _isPlayerTarget: 0
+      _target: {fileID: 0}
+      _pathLine: {fileID: 0}
+      _spawnPoint: {x: 9.01, y: -4.85}
       _xRangeSpawn: 0
       _yRangeSpawn: 0
     _waveDuration: 0
