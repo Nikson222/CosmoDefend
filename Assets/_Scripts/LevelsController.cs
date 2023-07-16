@@ -22,34 +22,39 @@ namespace Levels
 
         [SerializeField] private LevelSelectPanel _selectPanel;
 
+        public LevelSelectPanel SelectPanel => _selectPanel;
+
 
         private Action<int> _onLevelUnlock;
         private Action _onLevelLaunch;
 
-        private void Start()
-        {
-            //UpdateTargetForWave(_menuLevelConfig, _targetForEnemy);
+        private ScenesController _sceneManager;
 
-            //LaunchLevel(_menuLevelConfig);
+        public void Init(ScenesController sceneManager)
+        {
+            _sceneManager = sceneManager;
+            _sceneManager.OnTransitionInEnd += _enemySpawner.ClearWasteFromLastLevel;
+
+            UpdateTargetForWave(_menuLevelConfig, _targetForEnemy);
 
             DontDestroyOnLoad(this);
 
-            //_onLevelUnlock += _selectPanel.UnlockButton;
-            //_selectPanel.OnLevelSelect += LaunchLevel;
+            _onLevelUnlock += _selectPanel.UnlockButton;
 
-            //_allIndexesFlomConfigs = GetPossibleIndexes();
+            _selectPanel.OnLevelSelect += (LevelConfig levelConfig) => { StartCoroutine(LaunchLevelWithTransitionRoutine(levelConfig)); };
 
-            //_selectPanel.Init(_levelConfigs, _indexesOfUnlockededLevels);
+            _allIndexesFlomConfigs = GetPossibleIndexes();
 
-            //UnlockLevel(0);
+            _selectPanel.Init(_levelConfigs, _indexesOfUnlockededLevels);
+
+            UnlockLevel(0);
         }
-
-        private void LaunchLevel(int levelIndex)
+        
+        public IEnumerator LaunchLevelWithTransitionRoutine(LevelConfig levelConfig)
         {
             _onLevelLaunch?.Invoke();
-            _enemySpawner.ClearWasteFromLastLevel();
-            if (levelIndex < _levelConfigs.Length)
-                _enemySpawner.SpawnLevelWaves(_levelConfigs[levelIndex]);
+            yield return _sceneManager.LoadLevelScene();
+            _enemySpawner.SpawnLevelWaves(levelConfig);
         }
 
         public void LaunchLevel(LevelConfig levelConfig)
@@ -98,6 +103,11 @@ namespace Levels
                 _indexesOfUnlockededLevels.Add(index);
 
             _onLevelUnlock?.Invoke(index);
+        }
+
+        public void StartMenuLevelConfig()
+        {
+            LaunchLevel(_menuLevelConfig);
         }
     }
 }

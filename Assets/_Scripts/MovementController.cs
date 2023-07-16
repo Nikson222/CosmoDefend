@@ -6,7 +6,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] private float _speedOfReturnToStartPosition = 0.01f;
 
     [Space]
-    [SerializeField] private Transform _startSpacePlanePosition;
+    [SerializeField] private Vector2 _startSpacePlanePosition;
     [SerializeField] private Vector2 _tapOffset;
 
     [SerializeField] private Transform _parentTransform;
@@ -31,7 +31,7 @@ public class MovementController : MonoBehaviour
     private void ReturnSpacecraftToStartPosition()
     {
         var deltaSpeed = _speedOfReturnToStartPosition * Time.fixedDeltaTime;
-        _parentTransform.position = Vector2.MoveTowards(_parentTransform.position, _startSpacePlanePosition.position, deltaSpeed);
+        _parentTransform.position = Vector2.MoveTowards(_parentTransform.position, _startSpacePlanePosition, deltaSpeed);
     }
 
 

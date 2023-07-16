@@ -14,6 +14,7 @@ public class LevelSelectPanel : Panel
     [SerializeField] private ScrollRect _scrollRect;
 
     public Action<LevelConfig> OnLevelSelect;
+    public Action OnLevelLoading;
     private Dictionary<int, LevelButton> _levelButtons = new Dictionary<int, LevelButton>();
 
     private void Start()
@@ -35,7 +36,7 @@ public class LevelSelectPanel : Panel
             button.transform.SetAsFirstSibling();
             button.transform.localScale = Vector3.one;
 
-            button.AddListener(() => { SceneManager.LoadScene(1); SelectLevel(level); });
+            button.AddListener(() => { SelectLevel(level); });
 
             button.Init((levelIndex+1).ToString(), availablesLevels.Contains(levelIndex));
 

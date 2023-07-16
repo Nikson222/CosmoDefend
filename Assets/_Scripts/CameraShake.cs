@@ -16,15 +16,20 @@ public class CameraShake : MonoBehaviour
 
     private void Start()
     {
+        _player = FindObjectOfType<SpaceCraft>();
+
         _cameraTransform = Camera.main.transform;
-        _player.OnDamage += StartShake;
-        _player.OnDie += StartShake;
+        if (_player)
+        {
+            _player.OnDamage += StartShake;
+            _player.OnDie += StartShake;
+        }
     }
 
     private void StartShake()
     {
-        if (_shakeCoroutine != null) 
-            StopCoroutine(_shakeCoroutine); 
+        if (_shakeCoroutine != null)
+            StopCoroutine(_shakeCoroutine);
         _shakeCoroutine = StartCoroutine(Shake());
     }
     private IEnumerator Shake()
