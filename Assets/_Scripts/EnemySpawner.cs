@@ -123,8 +123,9 @@ public class EnemySpawner : MonoBehaviour
                     duration = UnityEngine.Random.Range(waveElement.MinDuration, waveElement.MaxDuration);
                 else
                     duration = waveElement.MinDuration;
-
-                yield return new WaitForSeconds(duration);
+                
+                if(i < waveElement.Count-1)
+                    yield return new WaitForSeconds(duration);
             }
         }
     }
