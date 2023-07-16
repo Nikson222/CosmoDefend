@@ -17,16 +17,16 @@ MonoBehaviour:
   - _isSimultaneouslySpawn: 1
     name: 1
     _waveElements: []
-    _waveDuration: 10
+    _waveDuration: 1
   - _isSimultaneouslySpawn: 1
     name: 1
     _waveElements:
     - name: 1
       _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
-      _count: 8
+      _count: 1
       _isRandomizeDuration: 0
-      _minDuration: 3.14
-      _maxDuration: 3.14
+      _minDuration: 0
+      _maxDuration: 0
       _switchDuration: 0
       _isPlayerTarget: 0
       _target: {fileID: 0}
@@ -36,10 +36,10 @@ MonoBehaviour:
       _yRangeSpawn: 0
     - name: 2
       _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
-      _count: 8
+      _count: 1
       _isRandomizeDuration: 0
-      _minDuration: 3.14
-      _maxDuration: 3.14
+      _minDuration: 0
+      _maxDuration: 0
       _switchDuration: 0
       _isPlayerTarget: 0
       _target: {fileID: 0}
@@ -49,10 +49,10 @@ MonoBehaviour:
       _yRangeSpawn: 0
     - name: 3
       _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
-      _count: 8
+      _count: 1
       _isRandomizeDuration: 0
-      _minDuration: 3.14
-      _maxDuration: 3.14
+      _minDuration: 0
+      _maxDuration: 0
       _switchDuration: 0
       _isPlayerTarget: 0
       _target: {fileID: 0}
@@ -62,10 +62,10 @@ MonoBehaviour:
       _yRangeSpawn: 0
     - name: 4
       _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
-      _count: 8
+      _count: 1
       _isRandomizeDuration: 0
-      _minDuration: 3.14
-      _maxDuration: 3.14
+      _minDuration: 0
+      _maxDuration: 0
       _switchDuration: 0
       _isPlayerTarget: 0
       _target: {fileID: 0}
@@ -75,10 +75,10 @@ MonoBehaviour:
       _yRangeSpawn: 0
     - name: 5
       _enemyPrefab: {fileID: 5754444051226823835, guid: 1e8e72272e5d8934ea81a6f589afb336, type: 3}
-      _count: 8
+      _count: 1
       _isRandomizeDuration: 0
-      _minDuration: 3.14
-      _maxDuration: 3.14
+      _minDuration: 0
+      _maxDuration: 0
       _switchDuration: 0
       _isPlayerTarget: 0
       _target: {fileID: 0}

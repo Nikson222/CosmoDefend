@@ -17,8 +17,8 @@ public class EnemySpawner : MonoBehaviour
 
     public Dictionary<EnemySpacecraft, ObjectPooler<EnemySpacecraft>> Enemiespoolers { get => _prefabsPooler; }
 
-
-    private Coroutine spawnCoroutine;
+    private List<Coroutine> coroutines = new List<Coroutine>();
+    private Coroutine _spawnCoroutine;
 
     private Action _onClearLastWave;
 
@@ -53,9 +53,9 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnLevelWaves(LevelConfig levelConfig)
     {
-        if (spawnCoroutine != null)
-            StopCoroutine(spawnCoroutine);
-        spawnCoroutine = StartCoroutine(SpawnWavesRoutine(levelConfig));
+        if (_spawnCoroutine != null)
+            StopCoroutine(_spawnCoroutine);
+        _spawnCoroutine = StartCoroutine(SpawnWavesRoutine(levelConfig));
     }
 
     private IEnumerator SpawnWavesRoutine(LevelConfig levelConfig)
@@ -64,25 +64,27 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int i = 0; i < Wave.WaveElements.Length; i++)
             {
-                if (!Wave.IsSimultaneouslySpawn && _possibleEnemys.Contains(Wave.WaveElements[i].EnemySpacecraft))
+                if (!Wave.IsSimultaneouslySpawn)
                 {
-                    var coroutine = StartCoroutine(SpawnElementWithDurationRoutine(Wave.WaveElements[i]));
-                    _onClearLastWave += () => { StopCoroutine(coroutine); };
+                    if (_possibleEnemys.Contains(Wave.WaveElements[i].EnemySpacecraft))
+                    {
+                        var coroutine = StartCoroutine(SpawnElementWithDurationRoutine(Wave.WaveElements[i]));
+                        coroutines.Add(coroutine);
 
-                    yield return new WaitForSeconds(Wave.WaveElements[i].SwitchDuration);
-                    yield return coroutine;
+                        yield return coroutine;
+                        yield return new WaitForSeconds(Wave.WaveElements[i].SwitchDuration);
+                    }
                 }
                 else
                 {
-                    Coroutine coroutine = null;
-                    foreach (var waveElement in Wave.WaveElements)
+                    if (_possibleEnemys.Contains(Wave.WaveElements[i].EnemySpacecraft))
                     {
-                        coroutine = StartCoroutine(SpawnElementWithDurationRoutine(waveElement));
-                        _onClearLastWave += () => { StopCoroutine(coroutine); };
+                        var coroutine = StartCoroutine(SpawnElementWithDurationRoutine(Wave.WaveElements[i]));
+                        coroutines.Add(coroutine);
 
-                        yield return new WaitForSeconds(waveElement.SwitchDuration);
+                        yield return coroutine;
+                        yield return new WaitForSeconds(Wave.WaveElements[i].SwitchDuration);
                     }
-                    yield return coroutine;
                 }
             }
 
@@ -167,8 +169,15 @@ public class EnemySpawner : MonoBehaviour
     public void ClearWasteFromLastLevel()
     {
         _onClearLastWave?.Invoke();
-        if (spawnCoroutine != null)
-            StopCoroutine(spawnCoroutine);
+        if (_spawnCoroutine != null)
+            StopCoroutine(_spawnCoroutine);
+
+        foreach (var coroutine in coroutines)
+        {
+            if (coroutine != null)
+                StopCoroutine(coroutine);
+        }
+        coroutines.Clear();
 
         foreach (Transform child in transform)
         {
