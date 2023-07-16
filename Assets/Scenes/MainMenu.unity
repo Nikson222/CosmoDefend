@@ -1660,7 +1660,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 743.3041, y: 0}
   m_SizeDelta: {x: 0, y: 174.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1315905193
@@ -2366,7 +2366,7 @@ MonoBehaviour:
   _player: {fileID: 1465479205}
   _levelController: {fileID: 404913081}
   _scenesController: {fileID: 1933781780}
-  _panelRecorder: {fileID: 0}
+  _panelRecorder: {fileID: 1957119434}
 --- !u!1 &1741216863
 GameObject:
   m_ObjectHideFlags: 0

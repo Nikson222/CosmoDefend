@@ -17,21 +17,26 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private PanelsRecorder _panelRecorder;
 
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
+
     private void Start()
     {
         SceneManager.activeSceneChanged += ApplySettingToScene;
 
+        _levelController.StartMenuLevelConfig();
+
         _levelController.Init(_scenesController);
-
-        if(Instance == null)
-            Instance = this;
-        else
-            Destroy(this);
-
-        DontDestroyOnLoad(this);
+        
+        DontDestroyOnLoad(gameObject);
 
         Application.targetFrameRate = 60;
-        _player.OnDie += () => { _scenesController.LoadLevelScene(); };
+        _player.OnDie += () => { _scenesController.LoadMenuScene(); };
     }
 
     private IEnumerator RestartGameRoutine()

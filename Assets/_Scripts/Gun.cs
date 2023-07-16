@@ -38,6 +38,9 @@ public class Gun : MonoBehaviour
         if (_isReloading)
             return;
 
+        if(_pooler == null)
+            _pooler = new ObjectPooler<Projectile>(20);
+
         var projectile = _pooler.GetObject();
         projectile.ApplySettings(_shootingForce, transform.position, shootingSide, _damageMultiplier);
 

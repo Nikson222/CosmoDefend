@@ -30,7 +30,6 @@ public class TransitionHandler : MonoBehaviour
 
     private IEnumerator TransitionAnimationRoutine(float length)
     {
-        print(length);
         yield return new WaitForSeconds(length);
     }
 }
