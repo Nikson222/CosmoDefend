@@ -1660,7 +1660,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 743.3041, y: 0}
+  m_AnchoredPosition: {x: 743.3748, y: 0}
   m_SizeDelta: {x: 0, y: 174.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1315905193
@@ -2037,7 +2037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 371616972308287473, guid: 5bda764e1b477ae4e935533fc1348341, type: 3}
       propertyPath: _possibleEnemysInLevels.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 371616972308287473, guid: 5bda764e1b477ae4e935533fc1348341, type: 3}
       propertyPath: _possibleEnemysInLevels.Array.data[0]
@@ -2055,6 +2055,10 @@ PrefabInstance:
       propertyPath: _possibleEnemysInLevels.Array.data[3]
       value: 
       objectReference: {fileID: 5754444051226823835, guid: 474e05780b7d0294a8b27af38a480aaa, type: 3}
+    - target: {fileID: 371616972308287473, guid: 5bda764e1b477ae4e935533fc1348341, type: 3}
+      propertyPath: _possibleEnemysInLevels.Array.data[4]
+      value: 
+      objectReference: {fileID: 5754444051226823835, guid: e8e2be5e60383fc4ab211bd4f587bf99, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bda764e1b477ae4e935533fc1348341, type: 3}
 --- !u!4 &1520298149 stripped
@@ -2859,7 +2863,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: cbc3b02b0b0e53e429b4dca40b3adbca, type: 2}
     - target: {fileID: 4768277278535642363, guid: 624734e865933d74ba873c366964e9c0, type: 3}
       propertyPath: _levelConfigs.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4768277278535642363, guid: 624734e865933d74ba873c366964e9c0, type: 3}
       propertyPath: _enemySpawners.Array.size
@@ -2868,7 +2872,7 @@ PrefabInstance:
     - target: {fileID: 4768277278535642363, guid: 624734e865933d74ba873c366964e9c0, type: 3}
       propertyPath: _levelConfigs.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: dab7f1173fe51784484cb2394cb98865, type: 2}
+      objectReference: {fileID: 11400000, guid: d13a8783b6dd8294f975efe0116382fb, type: 2}
     - target: {fileID: 4768277278535642363, guid: 624734e865933d74ba873c366964e9c0, type: 3}
       propertyPath: _levelConfigs.Array.data[1]
       value: 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthBarsController : MonoBehaviour
 {
@@ -11,22 +12,22 @@ public class HealthBarsController : MonoBehaviour
     [SerializeField] private GameObject _healthBarPrefab;
     [SerializeField] private Canvas _canvas;
 
-    private void Start()
+    private void Awake()
     {
-        DontDestroyOnLoad(_canvas);
-
         if (Instance == null)
             Instance = this;
         else
             Destroy(this);
 
+        DontDestroyOnLoad(_canvas);
+
         _pooler.Init(_healthBarPrefab.GetComponent<HealthBar>(), _canvas.transform);
+
+        SceneManager.activeSceneChanged += (Scene scene, Scene scene1) => { _canvas.worldCamera = Camera.main; };
     }
 
     public void CreateHealthBar(EnemySpacecraft enemySpacecraft)
     {
-        if(_canvas.worldCamera == null)
-            _canvas.worldCamera = Camera.main;
         _pooler.GetObject().Init(enemySpacecraft);
     }
 }

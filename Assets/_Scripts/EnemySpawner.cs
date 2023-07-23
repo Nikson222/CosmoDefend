@@ -118,6 +118,8 @@ public class EnemySpawner : MonoBehaviour
 
                 enemy.SetSettingsFromWave(waveElement);
 
+                HealthBarsController.Instance.CreateHealthBar(enemy);
+
                 float duration;
                 if (waveElement.IsRandomizeDuratiom)
                     duration = UnityEngine.Random.Range(waveElement.MinDuration, waveElement.MaxDuration);
@@ -126,32 +128,6 @@ public class EnemySpawner : MonoBehaviour
                 
                 if(i < waveElement.Count-1)
                     yield return new WaitForSeconds(duration);
-            }
-        }
-    }
-
-    private void SpawnElementWithOutDuration(WaveElement waveElement)
-    {
-        if (_possibleEnemys.Contains(waveElement.EnemySpacecraft))
-        {
-            for (int i = 0; i < waveElement.Count; i++)
-            {
-                var enemy = _prefabsPooler[waveElement.EnemySpacecraft].GetObject();
-                HealthBarsController.Instance.CreateHealthBar(enemy);
-
-                if (waveElement.SpawnPoint != Vector2.zero)
-                {
-                    float xOffset = UnityEngine.Random.Range(-waveElement.XRangeSpawn, waveElement.XRangeSpawn);
-                    float YOffset = UnityEngine.Random.Range(-waveElement.YRangeSpawn, waveElement.YRangeSpawn);
-                    Vector2 spawnPoint = new Vector2(waveElement.SpawnPoint.x + xOffset, waveElement.SpawnPoint.y + YOffset);
-
-                    SetSpawnPosition(enemy.transform, spawnPoint);
-                }
-
-                else
-                    SetSpawnPosition(enemy.transform);
-
-                enemy.SetSettingsFromWave(waveElement);
             }
         }
     }

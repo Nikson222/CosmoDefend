@@ -26,6 +26,8 @@ public abstract class EnemySpacecraft : MonoBehaviour, IDamageable
     {
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
+
+        _maxHealth = Health;
     }
     protected void FixedUpdate()
     {
@@ -53,7 +55,6 @@ public abstract class EnemySpacecraft : MonoBehaviour, IDamageable
     protected virtual void Update()
     {
         Shoot();
-        _maxHealth = Health;
     }
 
     public abstract void SetSettingsFromWave(WaveElement waveElement);
