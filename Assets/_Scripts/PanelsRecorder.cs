@@ -25,8 +25,6 @@ public class PanelsRecorder : MonoBehaviour
         {
             RegisterWindow(panel);
         }
-
-        SceneManager.activeSceneChanged += GetPanelsFromNewScene;
     }
 
     public void RegisterWindow(Panel panel)
@@ -34,7 +32,6 @@ public class PanelsRecorder : MonoBehaviour
         if (!_panels.ContainsKey(panel.panelID))
         {
             _panels.Add(panel.panelID, panel);
-            _avaliablePanels.Add(panel);
         }
         else
         {
@@ -52,19 +49,6 @@ public class PanelsRecorder : MonoBehaviour
         {
             Debug.LogWarning($"Window of ID {panelID} is not registered.");
             return null;
-        }
-    }
-
-    private void GetPanelsFromNewScene(Scene scene, Scene scene1)
-    {
-        var panels = FindObjectsOfType<Panel>();
-
-        _avaliablePanels.Clear();
-        _panels.Clear();
-
-        foreach (var panel in panels)
-        {
-            RegisterWindow(panel);
         }
     }
 }

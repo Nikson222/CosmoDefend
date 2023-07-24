@@ -5,22 +5,19 @@ using UnityEngine;
 
 public class SpaceCraft : MonoBehaviour, IDamageable
 {
-    [SerializeField] private List<Gun> _possibleGuns = new List<Gun>();
+    [SerializeField] protected List<Gun> _possibleGuns = new List<Gun>();
 
     [SerializeField] protected float _health;
 
     [SerializeField] protected Animator _animator;
-    private const string _dieParameterName = "IsDie";
-    private const string _damageParameterName = "IsDamage";
+    protected const string _dieParameterName = "IsDie";
+    protected const string _damageParameterName = "IsDamage";
 
     public Action OnDie;
     public Action OnDamage;
+    protected float _maxHealth;
 
-    private void Start()
-    {
-        _animator = GetComponent<Animator>();
-        OnDie += () => { GameManager.Instance.ScenesController.LoadMenuScene(); };
-    }
+    public float MaxHealth => _maxHealth;
 
     public float Health
     {
@@ -36,16 +33,20 @@ public class SpaceCraft : MonoBehaviour, IDamageable
                 _health = value;
         }
     }
-
-    protected float _maxHealth;
-
-    private void Update()
+    protected virtual void Start()
     {
-        Shoot();
+        _animator = GetComponent<Animator>();
+        OnDie += () => { GameManager.Instance.ScenesController.LoadMenuScene(); };
         _maxHealth = _health;
     }
 
-    private void Shoot()
+
+    protected virtual void Update()
+    {
+        Shoot();
+    }
+
+    protected virtual void Shoot()
     {
         for (int i = 0; i < _possibleGuns.Count; i++)
         {
@@ -54,14 +55,14 @@ public class SpaceCraft : MonoBehaviour, IDamageable
         }
     }
 
-    public void GetDamage(float damage)
+    public virtual void GetDamage(float damage)
     {
         OnDamage?.Invoke();
         Health -= damage;
         StartCoroutine(DamageAniamtionProcessRoutine());
     }
 
-    private void Die()
+    protected void Die()
     {
         OnDie?.Invoke();
         StartCoroutine(DieProcesRoutine());

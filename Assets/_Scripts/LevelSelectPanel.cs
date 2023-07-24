@@ -16,7 +16,7 @@ public class LevelSelectPanel : Panel
     public Action<LevelConfig> OnLevelSelect;
     private Dictionary<int, LevelButton> _levelButtons = new Dictionary<int, LevelButton>();
 
-    private void Start()
+    private void Awake()
     {  
         _exitButton.onClick.AddListener(() => { _panelSwitcher.SwitchToWindow("MainMenu"); });
 

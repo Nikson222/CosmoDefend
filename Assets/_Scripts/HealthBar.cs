@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    private EnemySpacecraft _target;
+    private SpaceCraft _target;
 
     [SerializeField] private Image _fillImage;
 
@@ -21,34 +21,12 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         transform.localScale = _startedLocalSize;
-        SceneManager.activeSceneChanged += (Scene scene, Scene scene1) => { Disable(); };
     }
 
     private void Update()
     {
         if(_target)
             transform.position = new Vector2(_target.transform.position.x + _positionOffset.x, _target.transform.position.y + _positionOffset.y);
-    }
-
-    public void Init(EnemySpacecraft enemySpacecraft)
-    {
-        _fillImage.fillAmount = 1;
-
-        transform.localScale = _startedLocalSize;
-
-        if (_target != null)
-        {
-            _target.OnDamage -= UpdateFill;
-            _target.OnDie -= UpdateFill;
-            _target.OnDie -= Disable;
-        }
-
-        _target = enemySpacecraft;
-        _target.OnDamage += UpdateFill;
-        _target.OnDie += UpdateFill;
-        _target.OnDie += Disable;
-
-        UpdateFill();
     }
 
     public void Init(SpaceCraft enemySpacecraft)

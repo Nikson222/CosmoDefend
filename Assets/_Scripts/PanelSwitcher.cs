@@ -26,8 +26,6 @@ public class PanelSwitcher : MonoBehaviour
 
     private void Start()
     {
-        //DontDestroyOnLoad(this);
-
         foreach (var item in panelsRecorder.Panels.Values)
         {
             item.InjectPanelSwitcher(this);

@@ -39,17 +39,26 @@ namespace Levels
             _sceneManager = sceneManager;
             _sceneManager.OnTransitionInEnd += _enemySpawner.ClearWasteFromLastLevel;
 
-            //DontDestroyOnLoad(this);
+            _sceneManager.OnTransitionInEnd += () =>
+            {
+                if (_sceneManager.IsMainMenuScene)
+                {
+                    _selectPanel.Init(_levelConfigs, _indexesOfUnlockededLevels);
 
+                    _selectPanel.OnLevelSelect += (LevelConfig levelConfig) => { StartCoroutine(LaunchLevelWithTransitionRoutine(levelConfig)); };
+                }
+            };
+
+            _selectPanel.Init(_levelConfigs, _indexesOfUnlockededLevels);
             _selectPanel.OnLevelSelect += (LevelConfig levelConfig) => { StartCoroutine(LaunchLevelWithTransitionRoutine(levelConfig)); };
 
             _allIndexesFlomConfigs = GetPossibleIndexes();
 
-            _selectPanel.Init(_levelConfigs, _indexesOfUnlockededLevels);
+            //_selectPanel.Init(_levelConfigs, _indexesOfUnlockededLevels);
 
             UnlockLevel(0);
         }
-        
+
         public IEnumerator LaunchLevelWithTransitionRoutine(LevelConfig levelConfig)
         {
             _onLevelLaunch?.Invoke();

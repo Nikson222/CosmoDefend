@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator InitRoutine()
     {
+
         var loadRoutine = _scenesController.LoadMenuScene();
         yield return loadRoutine;
 

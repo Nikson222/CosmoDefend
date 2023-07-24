@@ -809,7 +809,7 @@ MonoBehaviour:
   - {fileID: 7534942306930364422}
   - {fileID: 7188195843359121338}
   - {fileID: 603136470233928129}
-  _health: 1000
+  _health: 100
   _animator: {fileID: 0}
 --- !u!95 &269565433995189650
 Animator:

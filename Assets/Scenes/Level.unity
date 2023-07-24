@@ -247,6 +247,17 @@ MonoBehaviour:
   _shakeCount: 1
   _cameraTransform: {fileID: 0}
   _player: {fileID: 0}
+--- !u!114 &709438315 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2274552903988635525, guid: e9c35f48550b142408c8968c1ee7f8f1, type: 3}
+  m_PrefabInstance: {fileID: 1035957399}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ba2425e96c8b24d95c9299953c8d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1035957399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -315,6 +326,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 5354963395368052045, guid: cb1816b21e2f4d842a78ec3e67876727, type: 3}
+      propertyPath: _playerSpaceCraft
+      value: 
+      objectReference: {fileID: 709438315}
     - target: {fileID: 5354963395368052048, guid: cb1816b21e2f4d842a78ec3e67876727, type: 3}
       propertyPath: m_Name
       value: HealthBarsCanvas
