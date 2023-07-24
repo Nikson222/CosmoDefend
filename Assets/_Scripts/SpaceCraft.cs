@@ -19,6 +19,7 @@ public class SpaceCraft : MonoBehaviour, IDamageable
     private void Start()
     {
         _animator = GetComponent<Animator>();
+        OnDie += () => { GameManager.Instance.ScenesController.LoadMenuScene(); };
     }
 
     public float Health

@@ -14,6 +14,7 @@ public class ScenesController : MonoBehaviour
     public bool IsMainMenuScene { get => SceneManager.GetActiveScene().buildIndex.Equals(0); }
     public bool IsLevelScene { get => SceneManager.GetActiveScene().buildIndex.Equals(1); }
 
+
     public Coroutine LoadMenuScene()
     {
         return StartCoroutine(LoadTransitionRoutine(0));

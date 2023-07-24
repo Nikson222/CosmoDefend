@@ -9,13 +9,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [SerializeField] private SpaceCraft _player;
-
     [SerializeField] private LevelsController _levelController;
 
     [SerializeField] private ScenesController _scenesController;
 
-    [SerializeField] private PanelsRecorder _panelRecorder;
+    public LevelsController LevelController => _levelController;
+    public ScenesController ScenesController => _scenesController;
 
     private void Awake()
     {
@@ -27,36 +26,24 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        SceneManager.activeSceneChanged += ApplySettingToScene;
-
-        _levelController.StartMenuLevelConfig();
-
-        _levelController.Init(_scenesController);
-        
+        Application.targetFrameRate = 60;
         DontDestroyOnLoad(gameObject);
 
-        Application.targetFrameRate = 60;
-        _player.OnDie += () => { _scenesController.LoadMenuScene(); };
+        StartCoroutine(InitRoutine());
     }
 
-    private IEnumerator RestartGameRoutine()
+    private IEnumerator InitRoutine()
     {
-        yield return new WaitForSeconds(3f);
-        var scene = SceneManager.GetActiveScene();
-        StopAllCoroutines();
-        SceneManager.LoadScene(scene.buildIndex, LoadSceneMode.Single);
+        var loadRoutine = _scenesController.LoadMenuScene();
+        yield return loadRoutine;
+
+        _levelController.Init(_scenesController);
+
+        _levelController.StartMenuLevelConfig();
     }
 
-    private void ApplySettingToScene(Scene scene, Scene scene1)
+    public void SetMenuTarget(Transform targetTransform)
     {
-        if (_scenesController.IsMainMenuScene)
-        {
-            _levelController.StartMenuLevelConfig();
-            _player.gameObject.SetActive(false);
-        }
-        else if (_scenesController.IsLevelScene)
-        {
-            _player.gameObject.SetActive(true);
-        }
+        _levelController.UpdateTargetForWave(_levelController.MenuLevelConfig, targetTransform);
     }
 }

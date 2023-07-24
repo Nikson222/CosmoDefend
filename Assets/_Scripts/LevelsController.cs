@@ -18,12 +18,16 @@ namespace Levels
 
         [SerializeField] private EnemySpawner _enemySpawner;
 
-        [SerializeField] private Transform _targetForEnemy;
+        private LevelSelectPanel _selectPanel;
+        public LevelConfig[] LevelConfigs => _levelConfigs;
 
-        [SerializeField] private LevelSelectPanel _selectPanel;
+        public LevelSelectPanel SelectPanel
+        {
+            get => _selectPanel;
+            set => _selectPanel = value;
+        }
 
-        public LevelSelectPanel SelectPanel => _selectPanel;
-
+        public LevelConfig MenuLevelConfig => _menuLevelConfig;
 
         private Action<int> _onLevelUnlock;
         private Action _onLevelLaunch;
@@ -35,11 +39,7 @@ namespace Levels
             _sceneManager = sceneManager;
             _sceneManager.OnTransitionInEnd += _enemySpawner.ClearWasteFromLastLevel;
 
-            UpdateTargetForWave(_menuLevelConfig, _targetForEnemy);
-
-            DontDestroyOnLoad(this);
-
-            _onLevelUnlock += _selectPanel.UnlockButton;
+            //DontDestroyOnLoad(this);
 
             _selectPanel.OnLevelSelect += (LevelConfig levelConfig) => { StartCoroutine(LaunchLevelWithTransitionRoutine(levelConfig)); };
 
@@ -54,6 +54,7 @@ namespace Levels
         {
             _onLevelLaunch?.Invoke();
             yield return _sceneManager.LoadLevelScene();
+
             _enemySpawner.SpawnLevelWaves(levelConfig);
         }
 
@@ -103,6 +104,9 @@ namespace Levels
                 _indexesOfUnlockededLevels.Add(index);
 
             _onLevelUnlock?.Invoke(index);
+
+            if (_selectPanel)
+                _selectPanel.UnlockButton(index);
         }
 
         public void StartMenuLevelConfig()

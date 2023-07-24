@@ -14,12 +14,14 @@ public class LevelSelectPanel : Panel
     [SerializeField] private ScrollRect _scrollRect;
 
     public Action<LevelConfig> OnLevelSelect;
-    public Action OnLevelLoading;
     private Dictionary<int, LevelButton> _levelButtons = new Dictionary<int, LevelButton>();
 
     private void Start()
     {  
         _exitButton.onClick.AddListener(() => { _panelSwitcher.SwitchToWindow("MainMenu"); });
+
+        if(GameManager.Instance != null)
+            GameManager.Instance.LevelController.SelectPanel = this;
     }
 
     public void Init(LevelConfig[] levelConfigs, List<int> availablesLevels)

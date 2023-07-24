@@ -11,14 +11,13 @@ public class TransitionHandler : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
     }
 
     public Coroutine PlayTransitionIn()
     {
         _animator.SetBool(LOADING_PARAMETR, true);
-        return StartCoroutine(TransitionAnimationRoutine(_animator.GetCurrentAnimatorClipInfo(0).Length));
-        
+        return StartCoroutine(TransitionAnimationRoutine(_animator.GetCurrentAnimatorClipInfo(0).Length));   
     }
 
     public Coroutine PlayTransitionOut()

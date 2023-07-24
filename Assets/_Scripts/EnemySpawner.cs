@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
     }
 
     private void Awake()
@@ -118,7 +118,8 @@ public class EnemySpawner : MonoBehaviour
 
                 enemy.SetSettingsFromWave(waveElement);
 
-                HealthBarsController.Instance.CreateHealthBar(enemy);
+                if(GameManager.Instance.ScenesController.IsLevelScene)
+                    HealthBarsController.Instance.CreateHealthBar(enemy);
 
                 float duration;
                 if (waveElement.IsRandomizeDuratiom)

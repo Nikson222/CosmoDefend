@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    private EnemySpacecraft _targetEnemy;
+    private EnemySpacecraft _target;
 
     [SerializeField] private Image _fillImage;
 
@@ -20,12 +21,13 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         transform.localScale = _startedLocalSize;
+        SceneManager.activeSceneChanged += (Scene scene, Scene scene1) => { Disable(); };
     }
 
     private void Update()
     {
-        if(_targetEnemy)
-            transform.position = new Vector2(_targetEnemy.transform.position.x + _positionOffset.x, _targetEnemy.transform.position.y + _positionOffset.y);
+        if(_target)
+            transform.position = new Vector2(_target.transform.position.x + _positionOffset.x, _target.transform.position.y + _positionOffset.y);
     }
 
     public void Init(EnemySpacecraft enemySpacecraft)
@@ -34,17 +36,38 @@ public class HealthBar : MonoBehaviour
 
         transform.localScale = _startedLocalSize;
 
-        if (_targetEnemy != null)
+        if (_target != null)
         {
-            _targetEnemy.OnDamage -= UpdateFill;
-            _targetEnemy.OnDie -= UpdateFill;
-            _targetEnemy.OnDie -= Disable;
+            _target.OnDamage -= UpdateFill;
+            _target.OnDie -= UpdateFill;
+            _target.OnDie -= Disable;
         }
 
-        _targetEnemy = enemySpacecraft;
-        _targetEnemy.OnDamage += UpdateFill;
-        _targetEnemy.OnDie += UpdateFill;
-        _targetEnemy.OnDie += Disable;
+        _target = enemySpacecraft;
+        _target.OnDamage += UpdateFill;
+        _target.OnDie += UpdateFill;
+        _target.OnDie += Disable;
+
+        UpdateFill();
+    }
+
+    public void Init(SpaceCraft enemySpacecraft)
+    {
+        _fillImage.fillAmount = 1;
+
+        transform.localScale = _startedLocalSize;
+
+        if (_target != null)
+        {
+            _target.OnDamage -= UpdateFill;
+            _target.OnDie -= UpdateFill;
+            _target.OnDie -= Disable;
+        }
+
+        _target = enemySpacecraft;
+        _target.OnDamage += UpdateFill;
+        _target.OnDie += UpdateFill;
+        _target.OnDie += Disable;
 
         UpdateFill();
     }
@@ -55,7 +78,7 @@ public class HealthBar : MonoBehaviour
     }
     private void UpdateFill()
     {
-        _fillImage.fillAmount = _targetEnemy.Health / _targetEnemy.MaxHealth;
+        _fillImage.fillAmount = _target.Health / _target.MaxHealth;
 
         if (_fillImage.fillAmount <= 0)
             Disable();

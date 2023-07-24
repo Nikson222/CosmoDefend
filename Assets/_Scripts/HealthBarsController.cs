@@ -9,21 +9,22 @@ public class HealthBarsController : MonoBehaviour
 
     private ObjectPooler<HealthBar> _pooler = new ObjectPooler<HealthBar>();
 
+    [SerializeField] private SpaceCraft _playerSpaceCraft;
     [SerializeField] private GameObject _healthBarPrefab;
     [SerializeField] private Canvas _canvas;
 
-    private void Awake()
+    private void Start()
     {
         if (Instance == null)
             Instance = this;
         else
-            Destroy(this);
+            Destroy(gameObject);
 
-        DontDestroyOnLoad(_canvas);
+        //DontDestroyOnLoad(gameObject);
 
         _pooler.Init(_healthBarPrefab.GetComponent<HealthBar>(), _canvas.transform);
 
-        SceneManager.activeSceneChanged += (Scene scene, Scene scene1) => { _canvas.worldCamera = Camera.main; };
+        _pooler.GetObject().Init(_playerSpaceCraft);
     }
 
     public void CreateHealthBar(EnemySpacecraft enemySpacecraft)

@@ -10,12 +10,10 @@ public class PanelSwitcher : MonoBehaviour
 
     [SerializeField] private PanelsRecorder panelsRecorder;
 
-    private List<Panel> _activePanels = new List<Panel>();
-
     private Panel _currentPanel;
 
     [SerializeField] private Panel _defaultPanel;
-
+    
     private void Awake()
     {
         if (_instance == null)
@@ -28,7 +26,7 @@ public class PanelSwitcher : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
 
         foreach (var item in panelsRecorder.Panels.Values)
         {
