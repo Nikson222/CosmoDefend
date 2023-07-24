@@ -8,7 +8,6 @@ public class CameraShake : MonoBehaviour
     [SerializeField] private Vector2 _rightDownOffset;
     [SerializeField] private float _shakeSpeed;
     [SerializeField] private float _shakeCount;
-    [SerializeField] private Transform _cameraTransform;
 
     [Space]
     [SerializeField] private SpaceCraft _player;
@@ -16,14 +15,10 @@ public class CameraShake : MonoBehaviour
 
     private void Start()
     {
-        _player = FindObjectOfType<SpaceCraft>();
+        _player.OnDamage += StartShake;
+        _player.OnDie += StartShake;
 
-        _cameraTransform = Camera.main.transform;
-        if (_player)
-        {
-            _player.OnDamage += StartShake;
-            _player.OnDie += StartShake;
-        }
+        _player = null;
     }
 
     private void StartShake()
@@ -34,9 +29,9 @@ public class CameraShake : MonoBehaviour
     }
     private IEnumerator Shake()
     {
-        _cameraTransform.position = new Vector3(0, 0, -10);
+        transform.position = new Vector3(0, 0, -10);
 
-        Vector3 savedPosition = _cameraTransform.position;
+        Vector3 savedPosition = transform.position;
 
         for (int i = 0; i < _shakeCount; i++)
         {
@@ -44,7 +39,7 @@ public class CameraShake : MonoBehaviour
             while (!IsComeToPoint(targetPosition))
             {
                 var deltaSpeed = _shakeSpeed * Time.fixedDeltaTime;
-                _cameraTransform.position = Vector3.MoveTowards(_cameraTransform.position, targetPosition, deltaSpeed);
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, deltaSpeed);
                 yield return null;
             }
         }
@@ -52,7 +47,7 @@ public class CameraShake : MonoBehaviour
         while (!IsComeToPoint(savedPosition))
         {
             var deltaSpeed = _shakeSpeed * Time.fixedDeltaTime;
-            _cameraTransform.position = Vector3.MoveTowards(_cameraTransform.position, savedPosition, deltaSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, savedPosition, deltaSpeed);
             yield return null;
         }
     }

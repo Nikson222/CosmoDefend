@@ -11,18 +11,18 @@ public class ScenesController : MonoBehaviour
 
     [SerializeField] private TransitionHandler _transitionHandler;
 
-    public bool IsMainMenuScene { get => SceneManager.GetActiveScene().buildIndex.Equals(0); }
-    public bool IsLevelScene { get => SceneManager.GetActiveScene().buildIndex.Equals(1); }
+    public bool IsMainMenuScene { get => SceneManager.GetActiveScene().buildIndex.Equals(1); }
+    public bool IsLevelScene { get => SceneManager.GetActiveScene().buildIndex.Equals(2); }
 
 
     public Coroutine LoadMenuScene()
     {
-        return StartCoroutine(LoadTransitionRoutine(0));
+        return StartCoroutine(LoadTransitionRoutine(1));
     }
 
     public Coroutine LoadLevelScene()
     {
-        return StartCoroutine(LoadTransitionRoutine(1));
+        return StartCoroutine(LoadTransitionRoutine(2));
     }
 
     private IEnumerator LoadTransitionRoutine(int buildIndex)

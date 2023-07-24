@@ -26,7 +26,7 @@ public class HealthBar : MonoBehaviour
     private void Update()
     {
         if(_target)
-            transform.position = new Vector2(_target.transform.position.x + _positionOffset.x, _target.transform.position.y + _positionOffset.y);
+            transform.position = new Vector3(_target.transform.position.x + _positionOffset.x, _target.transform.position.y + _positionOffset.y, 0);
     }
 
     public void Init(SpaceCraft enemySpacecraft)
