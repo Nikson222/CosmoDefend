@@ -8,7 +8,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private float _shootingDelay;
     [SerializeField] private float _shootingForce;
     [SerializeField] private float _damageMultiplier;
-
+    [SerializeField] protected AudioClip _shootClip;
     private ObjectPooler<Projectile> _pooler = new ObjectPooler<Projectile>(20);
 
     private bool _isReloading = false;
@@ -17,7 +17,7 @@ public class Gun : MonoBehaviour
 
     private void OnDisable()
     {
-        if(_reloadingCoroutine != null)
+        if (_reloadingCoroutine != null)
             StopCoroutine(_reloadingCoroutine);
         _isReloading = false;
     }
@@ -37,8 +37,8 @@ public class Gun : MonoBehaviour
     {
         if (_isReloading)
             return;
-
-        if(_pooler == null)
+        AudioManager.Instance.PlaySfx(_shootClip);
+        if (_pooler == null)
             _pooler = new ObjectPooler<Projectile>(20);
 
         var projectile = _pooler.GetObject();

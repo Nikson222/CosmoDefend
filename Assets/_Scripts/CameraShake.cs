@@ -29,6 +29,9 @@ public class CameraShake : MonoBehaviour
     }
     private IEnumerator Shake()
     {
+        if(GameManager.Instance.IsCanVibrate)
+            Handheld.Vibrate();
+
         transform.position = new Vector3(0, 0, -10);
 
         Vector3 savedPosition = transform.position;

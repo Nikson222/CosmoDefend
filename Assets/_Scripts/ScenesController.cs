@@ -11,17 +11,20 @@ public class ScenesController : MonoBehaviour
 
     [SerializeField] private TransitionHandler _transitionHandler;
 
+    [SerializeField] private AudioClip _menuMusic, _levelMusic;
     public bool IsMainMenuScene { get => SceneManager.GetActiveScene().buildIndex.Equals(1); }
     public bool IsLevelScene { get => SceneManager.GetActiveScene().buildIndex.Equals(2); }
 
 
     public Coroutine LoadMenuScene()
     {
+        AudioManager.Instance.PlayMusic(_menuMusic);
         return StartCoroutine(LoadTransitionRoutine(1));
     }
 
     public Coroutine LoadLevelScene()
     {
+        AudioManager.Instance.PlayMusic(_levelMusic);
         return StartCoroutine(LoadTransitionRoutine(2));
     }
 

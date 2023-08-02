@@ -9,6 +9,8 @@ public class SpaceCraft : MonoBehaviour, IDamageable
 
     [SerializeField] protected float _health;
 
+    [SerializeField] protected AudioClip _dieClip;
+
     [SerializeField] protected Animator _animator;
     protected const string _dieParameterName = "IsDie";
     protected const string _damageParameterName = "IsDamage";
@@ -64,6 +66,9 @@ public class SpaceCraft : MonoBehaviour, IDamageable
 
     protected void Die()
     {
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        AudioManager.Instance.PlaySfx(_dieClip);
+
         OnDie?.Invoke();
         StartCoroutine(DieProcesRoutine());
     }
@@ -105,5 +110,6 @@ public class SpaceCraft : MonoBehaviour, IDamageable
         _animator.SetBool(_dieParameterName, false);
 
         gameObject.SetActive(false);
+        gameObject.GetComponent<Collider2D>().enabled = true;
     }
 }

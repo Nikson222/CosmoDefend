@@ -13,8 +13,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private ScenesController _scenesController;
 
+    public bool IsCanVibrate = true;
+
     public LevelsController LevelController => _levelController;
     public ScenesController ScenesController => _scenesController;
+
+    private string _isVibrationOffSaveNave = "_isVibrationOff";
 
     private void Awake()
     {
@@ -22,6 +26,8 @@ public class GameManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+
+        IsCanVibrate = !Convert.ToBoolean(PlayerPrefs.GetInt(_isVibrationOffSaveNave));
     }
 
     private void Start()

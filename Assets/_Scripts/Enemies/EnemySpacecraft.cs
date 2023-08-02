@@ -53,6 +53,7 @@ public abstract class EnemySpacecraft : SpaceCraft
 
     public override void GetDamage(float damage)
     {
+
         OnDamage?.Invoke();
         Health -= damage;
     }
@@ -65,6 +66,8 @@ public abstract class EnemySpacecraft : SpaceCraft
                 _exhaustObject.gameObject.SetActive(false);
             _animator.SetBool(_explosionParameterName, true);
         }
+        var savedSpeed = _speed;
+        _speed = 0;
 
         AnimatorStateInfo animatorStateInfo = _animator.GetCurrentAnimatorStateInfo(0);
         float animationDuration = animatorStateInfo.length / _animator.speed;
@@ -76,6 +79,7 @@ public abstract class EnemySpacecraft : SpaceCraft
         if (_exhaustObject != null)
             _exhaustObject.gameObject.SetActive(true);
 
+        _speed = savedSpeed;
         gameObject.SetActive(false);
     }
 }

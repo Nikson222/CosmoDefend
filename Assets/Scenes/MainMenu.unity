@@ -235,7 +235,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -276}
+  m_AnchoredPosition: {x: 0, y: -349}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &129439208
@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 204068493}
   - component: {fileID: 204068492}
   - component: {fileID: 204068491}
+  - component: {fileID: 204068494}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -382,6 +383,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 204068489}
   m_CullTransparentMesh: 1
+--- !u!114 &204068494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204068489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44d44d060752e04fb1545b375092eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 204068491}
+  _clickSound: {fileID: 8300000, guid: 4908e73408945c1418c5ff0ea1ba7c24, type: 3}
 --- !u!1 &269773946
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,6 +668,7 @@ GameObject:
   - component: {fileID: 471091110}
   - component: {fileID: 471091109}
   - component: {fileID: 471091108}
+  - component: {fileID: 471091111}
   m_Layer: 5
   m_Name: VibrationOff
   m_TagString: Untagged
@@ -676,9 +692,9 @@ RectTransform:
   m_Father: {fileID: 129439207}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -190}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 841, y: 693}
   m_SizeDelta: {x: 90, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &471091108
@@ -763,6 +779,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471091106}
   m_CullTransparentMesh: 1
+--- !u!114 &471091111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471091106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44d44d060752e04fb1545b375092eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 471091108}
+  _clickSound: {fileID: 8300000, guid: 4908e73408945c1418c5ff0ea1ba7c24, type: 3}
 --- !u!1 &523532279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,6 +1219,8 @@ GameObject:
   - component: {fileID: 1119285281}
   - component: {fileID: 1119285280}
   - component: {fileID: 1119285279}
+  - component: {fileID: 1119285283}
+  - component: {fileID: 1119285282}
   m_Layer: 5
   m_Name: MusicOff
   m_TagString: Untagged
@@ -1212,9 +1244,9 @@ RectTransform:
   m_Father: {fileID: 129439207}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -190}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 741, y: 693}
   m_SizeDelta: {x: 90, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1119285279
@@ -1260,7 +1292,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1119285280}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1119285282}
+        m_TargetAssemblyTypeName: ToggleAudioSource, Assembly-CSharp
+        m_MethodName: ToogleAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1119285280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1299,6 +1343,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119285277}
   m_CullTransparentMesh: 1
+--- !u!114 &1119285282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119285277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ddcb512c652079458892abad0c73696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isToggleMusic: 1
+  _isToggleSFX: 0
+--- !u!114 &1119285283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119285277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44d44d060752e04fb1545b375092eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1119285279}
+  _clickSound: {fileID: 8300000, guid: 4908e73408945c1418c5ff0ea1ba7c24, type: 3}
 --- !u!4 &1166482945 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6808997547627530397, guid: 62f1143cf53f3e84d9932304a818371e, type: 3}
@@ -1395,7 +1467,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 743.375, y: 0}
+  m_AnchoredPosition: {x: 743.3749, y: 0}
   m_SizeDelta: {x: 0, y: 174.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1315905193
@@ -1986,6 +2058,7 @@ GameObject:
   - component: {fileID: 1772738531}
   - component: {fileID: 1772738530}
   - component: {fileID: 1772738529}
+  - component: {fileID: 1772738532}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -2009,9 +2082,9 @@ RectTransform:
   m_Father: {fileID: 129439207}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 49.04001, y: 103}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -0.95999146, y: 203}
   m_SizeDelta: {x: 150, y: 53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1772738529
@@ -2096,6 +2169,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772738527}
   m_CullTransparentMesh: 1
+--- !u!114 &1772738532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772738527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44d44d060752e04fb1545b375092eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1772738529}
+  _clickSound: {fileID: 8300000, guid: 4908e73408945c1418c5ff0ea1ba7c24, type: 3}
 --- !u!1 &1842692106
 GameObject:
   m_ObjectHideFlags: 0
@@ -2264,6 +2351,7 @@ GameObject:
   - component: {fileID: 1947770308}
   - component: {fileID: 1947770307}
   - component: {fileID: 1947770306}
+  - component: {fileID: 1947770309}
   m_Layer: 5
   m_Name: EXIT
   m_TagString: Untagged
@@ -2287,9 +2375,9 @@ RectTransform:
   m_Father: {fileID: 129439207}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 49.04001, y: -47}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -0.95999146, y: 53}
   m_SizeDelta: {x: 150, y: 53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1947770306
@@ -2374,6 +2462,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947770304}
   m_CullTransparentMesh: 1
+--- !u!114 &1947770309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947770304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44d44d060752e04fb1545b375092eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1947770306}
+  _clickSound: {fileID: 8300000, guid: 4908e73408945c1418c5ff0ea1ba7c24, type: 3}
 --- !u!1 &1957119432
 GameObject:
   m_ObjectHideFlags: 0
@@ -2448,6 +2550,8 @@ GameObject:
   - component: {fileID: 2130628714}
   - component: {fileID: 2130628713}
   - component: {fileID: 2130628712}
+  - component: {fileID: 2130628716}
+  - component: {fileID: 2130628715}
   m_Layer: 5
   m_Name: SoundsOff
   m_TagString: Untagged
@@ -2471,9 +2575,9 @@ RectTransform:
   m_Father: {fileID: 129439207}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -50, y: -190}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 641, y: 693}
   m_SizeDelta: {x: 90, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2130628712
@@ -2519,7 +2623,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2130628713}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2130628715}
+        m_TargetAssemblyTypeName: ToggleAudioSource, Assembly-CSharp
+        m_MethodName: ToogleAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2130628713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2558,6 +2674,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2130628710}
   m_CullTransparentMesh: 1
+--- !u!114 &2130628715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130628710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ddcb512c652079458892abad0c73696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isToggleMusic: 0
+  _isToggleSFX: 1
+--- !u!114 &2130628716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130628710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44d44d060752e04fb1545b375092eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 2130628712}
+  _clickSound: {fileID: 8300000, guid: 4908e73408945c1418c5ff0ea1ba7c24, type: 3}
 --- !u!1001 &2132486376
 PrefabInstance:
   m_ObjectHideFlags: 0

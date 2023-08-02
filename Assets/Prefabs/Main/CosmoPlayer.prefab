@@ -185,9 +185,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectile: {fileID: 826161630758810343, guid: 5c13cbc97726b56448b8539bc3c2221d, type: 3}
-  _shootingDelay: 0.1
+  _shootingDelay: 0.2
   _shootingForce: 5
   _damageMultiplier: 0
+  _shootClip: {fileID: 8300000, guid: af81f20498feb5f4ebdad9e23a8e593f, type: 3}
 --- !u!1 &286212526302143466
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,9 +287,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectile: {fileID: 826161630758810343, guid: 5c13cbc97726b56448b8539bc3c2221d, type: 3}
-  _shootingDelay: 0.1
+  _shootingDelay: 0.2
   _shootingForce: 5
   _damageMultiplier: 0
+  _shootClip: {fileID: 8300000, guid: af81f20498feb5f4ebdad9e23a8e593f, type: 3}
 --- !u!1 &3003659408944508889
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,9 +389,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectile: {fileID: 826161630758810343, guid: 5c13cbc97726b56448b8539bc3c2221d, type: 3}
-  _shootingDelay: 0.1
+  _shootingDelay: 0.2
   _shootingForce: 5
   _damageMultiplier: 0
+  _shootClip: {fileID: 8300000, guid: af81f20498feb5f4ebdad9e23a8e593f, type: 3}
 --- !u!1 &6078485516093177170
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,9 +491,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectile: {fileID: 826161630758810343, guid: 5c13cbc97726b56448b8539bc3c2221d, type: 3}
-  _shootingDelay: 0.1
+  _shootingDelay: 0.2
   _shootingForce: 5
   _damageMultiplier: 0
+  _shootClip: {fileID: 8300000, guid: af81f20498feb5f4ebdad9e23a8e593f, type: 3}
 --- !u!1 &6334289293657418721
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,9 +593,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectile: {fileID: 826161630758810343, guid: 5c13cbc97726b56448b8539bc3c2221d, type: 3}
-  _shootingDelay: 0.1
+  _shootingDelay: 0.2
   _shootingForce: 5
   _damageMultiplier: 0
+  _shootClip: {fileID: 8300000, guid: af81f20498feb5f4ebdad9e23a8e593f, type: 3}
 --- !u!1 &6528978640965823393
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,9 +695,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectile: {fileID: 826161630758810343, guid: 5c13cbc97726b56448b8539bc3c2221d, type: 3}
-  _shootingDelay: 0.1
+  _shootingDelay: 0.2
   _shootingForce: 5
   _damageMultiplier: 0
+  _shootClip: {fileID: 8300000, guid: af81f20498feb5f4ebdad9e23a8e593f, type: 3}
 --- !u!1 &9213994295432405537
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +816,9 @@ MonoBehaviour:
   - {fileID: 7188195843359121338}
   - {fileID: 603136470233928129}
   _health: 100
-  _animator: {fileID: 0}
+  _dieClip: {fileID: 8300000, guid: 95dea225ffadbf7469f208f92b864b51, type: 3}
+  _hitClip: {fileID: 8300000, guid: 4ff5566c0c96ef743a883ff875320be1, type: 3}
+  _animator: {fileID: 269565433995189650}
 --- !u!95 &269565433995189650
 Animator:
   serializedVersion: 5
@@ -904,12 +912,16 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2641704743186809112, guid: 073a191d0973a594c9d912565f39972c, type: 3}
+      propertyPath: _shootClip
+      value: 
+      objectReference: {fileID: 8300000, guid: af81f20498feb5f4ebdad9e23a8e593f, type: 3}
+    - target: {fileID: 2641704743186809112, guid: 073a191d0973a594c9d912565f39972c, type: 3}
       propertyPath: _projectile
       value: 
       objectReference: {fileID: 826161630758810343, guid: 5c13cbc97726b56448b8539bc3c2221d, type: 3}
     - target: {fileID: 2641704743186809112, guid: 073a191d0973a594c9d912565f39972c, type: 3}
       propertyPath: _shootingDelay
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7820661451057917577, guid: 073a191d0973a594c9d912565f39972c, type: 3}
       propertyPath: m_Name
